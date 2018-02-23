@@ -2,6 +2,10 @@
 
 code form viewController 
 
+![screen shot 2018-02-24 at 8 46 59 am](https://user-images.githubusercontent.com/13781274/36619836-75a5d2ea-191a-11e8-9911-62707136eb58.png)
+
+
+
 class ViewController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource {
 
    @IBOutlet weak var collectionview: UICollectionView!
