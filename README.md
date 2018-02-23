@@ -3,9 +3,10 @@
 code form viewController 
 
 ![screen shot 2018-02-24 at 8 46 59 am](https://user-images.githubusercontent.com/13781274/36619836-75a5d2ea-191a-11e8-9911-62707136eb58.png)
-second UIViewController
 
-https://user-images.githubusercontent.com/13781274/36619866-a0f646aa-191a-11e8-8e87-c173c5e76d59.png)
+second UIViewController
+![screen shot 2018-02-24 at 8 47 14 am](https://user-images.githubusercontent.com/13781274/36619866-a0f646aa-191a-11e8-8e87-c173c5e76d59.png)
+
 
 
 
