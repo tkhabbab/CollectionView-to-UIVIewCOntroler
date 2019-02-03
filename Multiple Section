@@ -1,0 +1,78 @@
+import UIKit
+
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+  
+     @IBOutlet weak var collectionview: UICollectionView!
+     let menuTitleArray: [String] = ["Favorites", "Food Cart","My Order","Explore Offers","Scan/View Menu","Coupon"]
+     let exoenceTitle: [String] = ["$$", "$$$$","$$$$$","$$$$$$","$$","$$$"]
+    
+    let menuIconArray: [UIImage] = [UIImage(named: "Love")!, UIImage(named: "Food-Cart")!, UIImage(named: "myorder")!, UIImage(named: "%")!,UIImage(named: "Scan")!, UIImage(named: "Coupon")!]
+    let catagoryItem: [String] = ["Popular Places", "Special Offers","New Item"]
+    
+    struct Storyboard {
+        static let sectionHeader = "SectiionViewHeaderHome"
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionview.dataSource = self
+        collectionview.delegate = self
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        var returnValue = Int()
+        
+        if section == 0 {
+            returnValue = self.menuIconArray.count
+            
+        } else if section == 1 {
+            returnValue = self.menuIconArray.count
+            
+        }
+        
+        return returnValue
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+          let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCellHome
+        
+        
+//        var cell = UICollectionViewCell()
+//
+//        let cellA:GroupPhoto = collectionView.dequeueReusableCell(withReuseIdentifier: "groupPhotoCard", for: indexPath) as! GroupPhoto
+//        let cellB:AddFriendCell = collectionView.dequeueReusableCell(withReuseIdentifier: "addFriendCard", for: indexPath) as! AddFriendCell
+        
+        let section = indexPath.section
+        
+        if section == 0 {
+            cell.resturentIcon.image = menuIconArray[indexPath.item]
+            cell.ResturentName.text = menuTitleArray[indexPath.item]
+            cell.howExpence.text = exoenceTitle[indexPath.item]
+            cell.layer.borderColor = UIColor.lightGray.cgColor
+            cell.layer.borderWidth = 0.5
+            //end of section 0
+        } else if section == 1 {
+            cell.resturentIcon.image = menuIconArray[indexPath.item]
+            cell.ResturentName.text = menuTitleArray[indexPath.item]
+            cell.howExpence.text = exoenceTitle[indexPath.item]
+            cell.layer.borderColor = UIColor.lightGray.cgColor
+            cell.layer.borderWidth = 0.5
+        }
+        
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let sectionHeaderView = collectionview.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Storyboard.sectionHeader, for: indexPath) as! SectiionViewHeaderHome
+        let catagory = catagoryItem [indexPath.section]
+        sectionHeaderView.catagoryTitle = catagory
+        
+        return sectionHeaderView
+    }
+
+}
+
